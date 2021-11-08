@@ -1,0 +1,1 @@
+Showcase website (fictitious company). Available at https://entropy-web.fr/portfolio
