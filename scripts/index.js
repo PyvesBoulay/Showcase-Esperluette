@@ -31,7 +31,7 @@ function updateS3TitleWidth() {
         text.style.position = 'absolute';
         text.style.whiteSpace = 'nowrap';
         text.style.padding = '1rem';
-        text.innerHTML = 'A COLLECTION<br>TO CELEBRATE';
+        text.innerHTML = 'A COLLECTION<br>TO CELEBRATE&nbsp';
 
         let width = Math.ceil(text.clientWidth);
         document.body.removeChild(text);
