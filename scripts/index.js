@@ -29,7 +29,7 @@ function updateS3TitleWidth() {
         text.style.height = 'auto';
         text.style.width = 'auto';
         text.style.position = 'absolute';
-        text.style.whiteSpace = 'no-wrap';
+        text.style.whiteSpace = 'nowrap';
         text.style.padding = '1rem';
         text.innerHTML = 'A COLLECTION<br>TO CELEBRATE';
 
