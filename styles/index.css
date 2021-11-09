@@ -237,7 +237,7 @@ section {
 #s3 > div {
     left: calc(var(--spacing) * 2);
     top: var(--spacing);
-    width: calc(100% - calc(var(--spacing) * 3));
+    width: calc(100% - calc(var(--spacing) * 2));
     height: calc(100vh - calc(var(--spacing) * 2));
 }
 
@@ -280,7 +280,7 @@ section {
     box-sizing: border-box;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 30vw;
+    width: 40vw;
     position: absolute;
     bottom: 0;
     right: var(--spacing);
@@ -351,7 +351,7 @@ section {
 }
 
 .s3_side_image_wrapper img{
-    transform: rotate(-90deg) translate(-100%, -15%);
+    transform: rotate(90deg) translate(0%, -80%);
     transform-origin: top left;
     width: calc(100vh - calc(var(--spacing) * 2));
     position: absolute;
@@ -498,10 +498,6 @@ section {
 
     #s3 .cta_button {
         bottom: calc(var(--spacing) * -2.2);
-    }
-
-    #s3 > div {
-        width: calc(100% - calc(var(--spacing) * 2));
     }
 
     .s3_artists_images {

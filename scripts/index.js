@@ -7,15 +7,6 @@ window.addEventListener('ScrollSnapStart', e => {
     pageIndicatorNumber.innerText = e.detail.toId+1;
 });
 
-const navbar = document.querySelector('nav');
-document.addEventListener('scroll', function (e) {
-    if(document.documentElement.scrollTop>5 && !navbar.classList.contains('scrolledNav')) {
-        navbar.classList.add('scrolledNav');
-    } else if (document.documentElement.scrollTop <= 5) {
-        navbar.classList.remove('scrolledNav');
-    }
-});
-
 function updateS3TitleWidth() {
     const mq = window.matchMedia("(min-width: 600px) and (max-width: 1024px)").matches;
     if (!mq) {
@@ -31,7 +22,7 @@ function updateS3TitleWidth() {
         text.style.position = 'absolute';
         text.style.whiteSpace = 'nowrap';
         text.style.padding = '1rem';
-        text.innerHTML = 'A COLLECTION<br>TO CELEBRATE&nbsp';
+        text.innerHTML = s3_title;
 
         let width = Math.ceil(text.clientWidth);
         document.body.removeChild(text);
