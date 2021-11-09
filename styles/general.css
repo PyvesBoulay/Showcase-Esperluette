@@ -137,6 +137,17 @@ footer button {
     transform: translateX(-50%);
 }
 
+.text_wrapper {
+    background-color: var(--secondary-accent);
+    padding: var(--spacing);
+    box-shadow: 0px 4px 32px -8px rgba(0, 0, 0, 0.25);
+}
+
+.section_gradient {
+    background: var(--main-gradient);
+    z-index: 0;
+}
+
 /* SMALL COMPUTER */
 @media (min-width: 1025px) and (max-width: 1280px) {
 
@@ -177,5 +188,9 @@ footer button {
     footer div p{
         box-sizing: content-box;
         width: calc(100% - 4rem);
+    }
+
+    .text_wrapper {
+        padding: calc(var(--spacing) / 2);
     }
 }

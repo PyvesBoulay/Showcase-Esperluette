@@ -5,25 +5,60 @@
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <meta name="description" content="Esperluette if a fictitious clothing company. This website is intended as a showcase of Pierre-Yves BOULAY 's skill [entropy-web.fr]">
         <link rel="stylesheet preload" as="style" href="./styles/general.css">
-        <link rel="stylesheet preload" as="style" href="./styles/index.css">
+        <link rel="stylesheet preload" as="style" href="./styles/about.css">
         <title>Esperluette</title>
     </head>
     <body>
         <nav>
             <a href=".">Home</a>
-            <a href=".">About</a>
+            <a href="./about.html">About</a>
             <a href=".">Shop</a>
         </nav>
         <section>
-            <h1>What is this website about ?</h1>
+            <div id="title_wrapper">
+                <div>
+                    <div class="section_gradient"></div>
+                    <h1>WHAT IS <br class="title_toggle_breakpoint"> THIS <br>WEBSITE <br class="title_toggle_breakpoint"> ABOUT?</h1>
+                </div>
+            </div>
+            <div class="text_wrapper">
+                <p>
+                    <b>Esperluette</b> is a <i>fictitious</i> clothing brand. I, Pierre-Yves BOULAY, web designer, full stack developer and founder of ENTROPY, wanted to try my hand at making a website revolving around a very specific subject, here a special operation made by the brand, promoting human rights.
+                    From that premise, I formulated a few design requirements.
+                    First of all, <i>colors</i> needed to be bright ans relatively vibrant to portrait a sense of joy and purity revolving around the brand and its products.
+                    Then I would have to find a <i>balance</i> between promoting the operation and marketing the brand.
+                    Finally I wanted the <i>navigation</i> to be a bit special.
+                </p>
+                <br><br>
+                <h3>Colors</h3>
+                <br>
+                <p>
+                    The design marrying theses requirements has a light gray for background and is contrasted by the orange elements and gradients throughout the whole website. The <i>design language</i> starts to take shape when adding a dedicated color for anything relative to human rights, setting a standard spacing and a limit on the amount of elements and information on each section.
+                </p>
+                <br><br>
+                <h3>Navigation</h3>
+                <br>
+                <p>
+                    The <i>exotic navigation</i>, namely snapping the scrolled page to the start of each section. The "scroll-snap" feature is available on every browser and terminal for continuity. This feature has to support and work with the natural behavior of the user, that why scroll-snap works with all the ways a user has to scroll the page, and will still snap in a non intrusive way. A static element indicates how far the user has scrolled, to be more precise, how many pages he's seen.
+                </p>
+                <br><br>
+                <h3>Balance</h3>
+                <br>
+                <p>
+                    Lastly the <i>balance</i> of the duality between the elements we want to promote here is achieved by placing recurring, bright <i>call to action buttons</i> leading the shop (not part of the website, as the challenge was based around this front page) and strategically placing images which would depict the types of clothes sold by the brand and a common element between each photograph, maybe a color or a prop. I sadly could not setup a shooting to take the pictures myself, so I did my best searching for images matching the mood and colors I would want for each picture of the page.
+                </p>
+            </div>
+            <div class="section_gradient">
+                <button><a href="https://entropy-web.fr/">ENTROPY</a></button>
+            </div>
         </section>
-        <footer class="ScrollSnap_Footer">
+        <footer>
             <div>
                 <p>
                     The content of the website is made to <span class="footer_highlight_1">showcase the skills</span> of <span class="footer_highlight_2">PIERRE-YVES BOULAY</span>, web designer, developer and owner of <span class="footer_highlight_2">ENTROPY</span>.
                 </p>
                 <p>
-                    Esperluette is a <span class="footer_highlight_1">fictious clothing brand</span>. the charities named in this website and <span class="footer_highlight_1">not associated</span> in any way with <span class="footer_highlight_2">PIERRE-YVES BOULAY</span> or <span class="footer_highlight_2">ENTROPY</span>.
+                    Esperluette is a <span class="footer_highlight_1">fictious clothing brand</span>. the charities named in this website are <span class="footer_highlight_1">not associated</span> in any way with <span class="footer_highlight_2">PIERRE-YVES BOULAY</span> or <span class="footer_highlight_2">ENTROPY</span>.
                 </p>
                 <p>
                     Please consider <span class="footer_highlight_1">donating to a charity</span>.
@@ -31,7 +66,7 @@
             </div>
             <button>ENTROPY</button>
             <p>
-                <span class="footer_highlight_1">Bibliography</span>
+                <a href="./bibliography.html"><span class="footer_highlight_1">Bibliography & Terms Of Use</span></a>
                 <br>
                 © 2021 entropy-web.fr - All Rights Reserved.
             </p>

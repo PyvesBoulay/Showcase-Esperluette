@@ -72,9 +72,13 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
             }
         }.bind(this);
 
-        this.scrollbarEnd = function() {
-            this.detectAnchor();
-            this.animateScroll(document.documentElement.scrollTop, this.anchors[this.currentAnchor].offsetTop);
+        this.scrollbarEnd = function(e) {
+            //First make sure the minimum scroll delay is over
+            if (Date.now() >= (this.lastScrollTime+this.scrollDelay)) {
+                this.lastScrollTime = Date.now();
+                this.detectAnchor();
+                this.animateScroll(document.documentElement.scrollTop, this.anchors[this.currentAnchor].offsetTop);
+            }
         }.bind(this);
 
         //Scroll handling function. Must pass scroll event

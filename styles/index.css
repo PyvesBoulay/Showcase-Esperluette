@@ -64,17 +64,6 @@ section {
     margin: 0 0.5rem 0 0.5rem;
 }
 
-.section_gradient {
-    background: var(--main-gradient);
-    z-index: 0;
-}
-
-.text_wrapper {
-    background-color: var(--secondary-accent);
-    padding: var(--spacing);
-    box-shadow: 0px 4px 32px -8px rgba(0, 0, 0, 0.25);
-}
-
 .title_text_highlight {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
