@@ -15,13 +15,15 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
         //The previous anchor we were snapped to, used for animation
         this.previousAnchor = 0;
         //We need a buffer for the scroll detection in order to not detect the scrolling from the animation itself
-        this.buffered = true;
-        //Are wee looking at the footer ?
+        this.buffered = false;
+        //Are we looking at the footer ?
         this.currentlyOnFooter = false;
         //The last time we snapped to an anchor. Used to impose a delay.
-        this.lastScrollTime = Date.now();
+        this.lastScrollTime = Date.now() - this.scrollDelay;
         //The position of the first touch in order to support a swipe
         this.initialTouch = [];
+        //Are we scrolling using something else, like holding click or scroll wheel
+        this.otherScroll = false;
 
         //Smoothing function for the animation
         this.easeInOutQuad = function(t, b, c, d) {
@@ -53,7 +55,7 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
 
         //Detects what section we are in and updates the current anchor property. Used when the page is loading or when the user scroll in an other way
         this.detectAnchor = function() {
-            if (!this.buffered) {
+            if (!this.buffered && this.currentAnimTime === 0 && !this.otherScroll) {
                 //We are in a new page if at least 45% of it is shown on screen.
                 for(let i = 0; i < this.anchors.length; i++) {
                     const anchorRect = this.anchors[i].getBoundingClientRect();
@@ -67,6 +69,7 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
                         break;
                     }
                 }
+                this.animateScroll(document.documentElement.scrollTop, this.anchors[this.currentAnchor].offsetTop);
             } else {
                 this.buffered = false;
             }
@@ -77,7 +80,7 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
             if (Date.now() >= (this.lastScrollTime+this.scrollDelay)) {
                 this.lastScrollTime = Date.now();
                 this.detectAnchor();
-                this.animateScroll(document.documentElement.scrollTop, this.anchors[this.currentAnchor].offsetTop);
+                // this.animateScroll(document.documentElement.scrollTop, this.anchors[this.currentAnchor].offsetTop);
             }
         }.bind(this);
 
@@ -133,15 +136,38 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
         window.addEventListener('resize', this.detectAnchor.bind(this));
         window.addEventListener('scroll', this.detectAnchor.bind(this));
         window.addEventListener('load', this.detectAnchor.bind(this));
-        window.addEventListener('mouseup', this.scrollbarEnd.bind(this));
+        this.lastMiddleClick = 0;
+        window.addEventListener('mousedown', e => {
+            if (e.button === 1) this.lastMiddleClick = Date.now()
+            this.otherScroll = true;
+            console.log(this.otherScroll)
+        });
+        window.addEventListener('mouseup', e => {
+            if (!(e.button === 1 && Date.now() - this.lastMiddleClick < 300)) {
+                console.log('here')
+                this.otherScroll = false;
+                this.scrollbarEnd.bind(this);
+            }
+        });
         window.addEventListener('keydown', e => {
             if (e.code === 'ArrowUp') {
+                this.otherScroll = true;
                 e.deltaY = -1;
                 this.onScroll(e);
             } else if (e.code === 'ArrowDown') {
+                this.otherScroll = true;
+                e.deltaY = 1;
+                this.onScroll(e);
+            } else if (e.code === 'Space') {
+                this.otherScroll = true;
                 e.deltaY = 1;
                 this.onScroll(e);
             }
+            this.otherScroll = false;
+        });
+
+        window.addEventListener('keyup', e => {
+            this.otherScroll = false;
         });
         //Swipe listeners
         window.addEventListener('touchstart', function (e) {
@@ -167,5 +193,8 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
             }
             this.initialTouch = [];
         }.bind(this), {passive: false});
+        //Check for page movement every once in a while
+        // setInterval(function () {if (Date.now() >= (this.lastScrollTime+this.scrollDelay)) this.detectAnchor()}.bind(this), 750);
+        this.detectAnchor();
     }
 }

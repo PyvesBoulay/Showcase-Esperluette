@@ -640,6 +640,7 @@ section {
     }
 
     #s2 .empty_frame {
+        display: none;
         border: none;
         position: absolute;
         width: 100%;
@@ -672,7 +673,7 @@ section {
     }
 
     #s3 .section_gradient {
-        width: calc(100% - calc(calc(100vh - calc(var(--title-line-height) + calc(var(--spacing) * 6))) * 0.14));
+        width: calc(100% - calc(calc(100vh - calc(var(--title-line-height) + calc(var(--spacing) * 6))) * 0.20));
         height: calc(100vh - calc(var(--title-line-height) + calc(var(--spacing) * 6)));
         top: calc(var(--title-line-height) + var(--spacing));
         left: 0;
@@ -821,6 +822,21 @@ section {
     }
 }
 
+@media (max-height: 820px) and (max-width: 1024px) {
+    #s3_texts_wrapper {
+        width: 60%;
+    }
+
+    #s3_texts_wrapper .text_wrapper, #s3_texts_wrapper p{
+        padding: calc(var(--spacing) / 2);
+    }
+
+    #s4_mobile_frame {
+        display: none;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
 
     #page_indicator_number {
@@ -845,7 +861,7 @@ section {
     }
 
     #s1 h2 {
-        font-size: 4rem;
+        font-size: clamp(2.8rem, 2.0000rem + 2.0000vw, 3.5rem);
     }
 
     #landing_symbol {
