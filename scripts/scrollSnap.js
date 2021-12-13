@@ -140,11 +140,9 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
         window.addEventListener('mousedown', e => {
             if (e.button === 1) this.lastMiddleClick = Date.now()
             this.otherScroll = true;
-            console.log(this.otherScroll)
         });
         window.addEventListener('mouseup', e => {
             if (!(e.button === 1 && Date.now() - this.lastMiddleClick < 300)) {
-                console.log('here')
                 this.otherScroll = false;
                 this.scrollbarEnd.bind(this);
             }

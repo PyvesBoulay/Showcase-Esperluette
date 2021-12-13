@@ -169,7 +169,8 @@ section {
  */
 
 #s2 > img {
-    width: 40%;
+    max-width: 40%;
+    max-height: calc(100vh - calc(calc(3 * var(--title-line-height)) + calc(2.1 * var(--spacing))));
     margin: var(--spacing) 0 0 var(--spacing);
 }
 
@@ -208,7 +209,7 @@ section {
 #s2 > .text_wrapper {
     width: calc(50% - calc(var(--spacing) * 2));
     position: absolute;
-    top: calc(var(--spacing) * 3);
+    bottom: calc(calc(3 * var(--title-line-height)) + calc(1.1 * var(--spacing)));
     right: 0;
 }
 
@@ -377,28 +378,29 @@ section {
     position: absolute;
     bottom: calc(0px - var(--spacing));
     right: calc(0px - var(--spacing));
+    --charity-spacing: 2rem;
 }
 
 #s4_charities_wrapper .text_wrapper {
-    width: calc(var(--spacing) * 10);
+    width: calc(var(--spacing) * 11);
     height: calc(var(--spacing) * 2);
     display: grid;
-    padding: 0 2rem 2rem 0;
+    padding: 0 var(--charity-spacing) var(--charity-spacing) 0;
     box-sizing: content-box;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: calc(calc(var(--spacing) * 2) + 2rem) 1fr 1fr;
+    grid-template-columns: calc(calc(var(--spacing) * 2) + var(--charity-spacing)) 1fr 1fr;
 }
 
 #s4_charities_wrapper .text_wrapper + .text_wrapper {
-    margin-top: 4rem;
+    margin-top: calc(1.5 * var(--charity-spacing));
 }
 
 #s4_charities_wrapper .text_wrapper img {
-    height: calc(calc(var(--spacing) * 2) + 2rem);
+    height: calc(calc(var(--spacing) * 2) + var(--charity-spacing));
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    top: -2rem;
-    left: -2rem;
+    top: calc(var(--charity-spacing) * -1);
+    left: calc(var(--charity-spacing) * -1);
 }
 
 #s4_charities_wrapper .text_wrapper h3{
@@ -833,6 +835,26 @@ section {
 
     #s4_mobile_frame {
         display: none;
+    }
+}
+
+@media (max-height: 681px) {
+    /**
+    * SECTION 4
+    */
+
+    #s4_charities_wrapper .text_wrapper img {
+        height: calc(calc(var(--spacing) * 2) - 1rem);
+        top: 1rem;
+        left: 1rem;
+    }
+
+    #s4_charities_wrapper .text_wrapper + .text_wrapper {
+        margin-top: 1rem;
+    }
+
+    #s4_charities_wrapper .text_wrapper {
+        padding: 0 1rem 1rem 0;
     }
 }
 
