@@ -838,7 +838,7 @@ section {
     }
 }
 
-@media (max-height: 681px) {
+@media (max-height: 1000px) and (min-aspect-ratio: 2/1) {
     /**
     * SECTION 4
     */
