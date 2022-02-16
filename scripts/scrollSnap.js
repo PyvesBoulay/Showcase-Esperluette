@@ -89,7 +89,7 @@ function ScrollSnap(animationDuration = 500, scrollDelay = 500) {
             e.preventDefault();
             e.stopPropagation();
             //First make sure the minimum scroll delay is over
-            if (Date.now() >= (this.lastScrollTime+this.scrollDelay)) {
+            if (Date.now() >= (this.lastScrollTime+this.scrollDelay) && this.currentAnimTime === 0 && ((Math.abs(e.deltaY) >= 20 && Date.now() >= (this.lastScrollTime+(this.scrollDelay*2))) || Math.abs(e.deltaY>40))) {
                 this.lastScrollTime = Date.now();
 
                 //Then detect the scrolling direction
